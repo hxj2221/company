@@ -134,6 +134,7 @@ h5{
   float: left;
   margin-top: 6vw;
   margin-left: 2vw;
+  margin-right: 2vw;
 }
 .el-icon-plus{
   border: 1.5px dashed rgb(185, 185, 175);
