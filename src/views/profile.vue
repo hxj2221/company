@@ -1,6 +1,6 @@
 <template>
 <div>
-    个人资料
+    个人资料vcsddddddddddd
 </div>
 </template>
 
