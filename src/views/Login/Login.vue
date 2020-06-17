@@ -2,7 +2,7 @@
   <div class="login">
     <div class="login-form">
       <div class="login-header">
-        <img src="../../assets/images/LOGO.png" width="100" height="50" alt="">
+        <img src="../../assets/images/logo.png" width="100" height="50" alt="">
        
       </div>
       <el-input
