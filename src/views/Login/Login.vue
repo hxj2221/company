@@ -50,7 +50,7 @@
         APP.loginLoading = true;
         alert('登陆成功')
           APP.loginLoading = false;
-          APP.$router.push({path: '/'});
+          APP.$router.push('/');
           console.log(APP)
           this.$store.commit("increment",APP._uid)
           console.log(APP._uid)
