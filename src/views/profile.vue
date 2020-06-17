@@ -116,8 +116,16 @@
   }
 </script>
 <style scoped>
+.head{
+  background-color: #fff;
+  width: 90%;
+  margin-left: 1vw;
+  margin-top: 1vw;
+}
 p{
   margin-bottom: 1vw;
+  margin-left: 1vw;
+ padding-top: 1vw;
 }
 hr{
   margin-bottom: 1vw;

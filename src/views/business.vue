@@ -1,6 +1,7 @@
 <template>
 <div>
-    业务池
+   <img src="../assets/images/tianjia.png" alt="" class="tj" slot="left">
+      <hr>
 </div>
 </template>
 
@@ -15,4 +16,10 @@ export default {
 }
 </script>
 <style scoped>
+.tj{
+  width:3vw;
+}
+hr{
+  margin-bottom: 1vw;
+}
 </style>
