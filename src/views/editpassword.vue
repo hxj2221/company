@@ -1,6 +1,5 @@
 <template>
 <div>
-    
       <div class="bg">
          <el-row>
          <el-col :span="1"><div class="grid-content bg-purple"><p class="text">修改密码</p> </div></el-col>
@@ -127,7 +126,7 @@ export default {
   width: 180px;
 }
 .bg{
-    width: 1560px;
+    width: 1800px;
     height: 355px;
     background:#fff;
     position: relative;
