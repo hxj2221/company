@@ -29,6 +29,7 @@
           @click.native="login"
       >登录
       </el-button>
+    
 
     </div>
   </div>
@@ -48,12 +49,17 @@
       login() {
         let APP = this;
         APP.loginLoading = true;
-        alert('登陆成功')
+        setTimeout(() => {
+          sessionStorage.setItem(APP.$Config.tokenKey, '123456789');
+          APP.$notify({
+            title: '登录成功',
+            message: '很高兴你使用ElementUIAdmin！别忘了给个Star哦。',
+            type: 'success'
+          });
           APP.loginLoading = false;
-          APP.$router.push('/');
-          console.log(APP)
-          this.$store.commit("increment",APP._uid)
-          console.log(APP._uid)
+          APP.$router.push({path: '/'});
+           this.$store.commit("increment",APP._uid)
+        }, 1000);
       }
     }
   }
