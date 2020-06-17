@@ -124,7 +124,7 @@
             <router-view></router-view>
           <!--</transition>-->
         </div>
-        <EuiFooter></EuiFooter>
+       
       </div>
     </div>
   </div>
@@ -132,7 +132,6 @@
 
 <script>
   import Screenfull from 'screenfull'
-   import EuiFooter from '../Layout/Footer';
   import NavBar from './NavBar'
   import Menu from '../../menu/index';
 
@@ -227,8 +226,7 @@
 
       setTimeout(()=>{this.NavBarWidth();},1000)
     },
-    components: {
-      EuiFooter, NavBar
+    components: { NavBar
     },
   }
 </script>
