@@ -61,11 +61,32 @@
       prop="operation"
       label="操作"
       align="center">
-      <el-button type="warning" icon="el-icon-edit" size="mini"></el-button>
+      <el-button type="warning" icon="el-icon-edit" @click="dialogVisible = true" size="mini"></el-button>
       <el-button type="danger" icon="el-icon-delete" size="mini"></el-button>
     </el-table-column>
   </el-table>
     </div>
+    <el-dialog
+      title="修改请假申请"
+      :visible.sync="dialogVisible"
+      width="30%"
+      :before-close="handleClose">
+      <p class="dialog_start clearfix"><span>开始时间</span><span class="inp"><el-date-picker v-model="dstart" type="date" placeholder="选择日期"></el-date-picker></span></p>
+      <p class="dialog_start clearfix"><span>结束时间</span><span class="inp"><el-date-picker v-model="dend" type="date" placeholder="选择日期"></el-date-picker></span></p>
+      <p class="dialog_start clearfix"><span>天数</span><span class="inp"><el-input v-model="ddays" placeholder="请输入内容"></el-input></span></p>
+      <p class="dialog_start clearfix">
+        <span>类型</span>
+        <span class="inp">
+        <el-radio v-model="radio" label="1">请假</el-radio>
+        <el-radio v-model="radio" label="2">外出</el-radio>
+        </span>
+      </p>
+      <p class="dialog_start clearfix"><span>原因</span><span class="inp"><el-input type="textarea" v-model="dreason"></el-input></span></p>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+      </span>
+    </el-dialog>
 </div>
 </template>
 
@@ -106,8 +127,25 @@ export default {
           state:'',
           operation:'',
         },
-      ]
+      ],
+      dialogVisible: false,
+      dstart:'',
+      dend:'',
+      ddays:'',
+      dtype:'',
+      dreason:''
     }
+  },
+  methods: {
+    handleClose(done) {
+        this.$confirm('确认关闭？')
+          // eslint-disable-next-line no-unused-vars
+          .then(_ => {
+            done();
+          })
+          // eslint-disable-next-line no-unused-vars
+          .catch(_ => {});
+      }
   },
 }
 </script>
@@ -137,6 +175,17 @@ float: right;
 .leave_data .el-button{
   padding: 7px;
   margin: 0;
+}
+.dialog_start span{
+  display: block;
+  margin-right: 10px;
+  width: 20%;
+  line-height: 40px;
+  float: left;
+  margin-bottom: 10px;
+}
+.dialog_start .inp{
+  width: 60%;
 }
 
 
