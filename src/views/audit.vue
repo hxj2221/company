@@ -8,31 +8,31 @@
       <el-table-column
         prop="name"
         label="姓名"
-        width="120"
+        width="150"
         align="center">
       </el-table-column>
       <el-table-column
         prop="gender"
         label="性别"
-        width="120"
+        width="150"
         align="center">
       </el-table-column>
       <el-table-column
         prop="age"
         label="年龄"
-        width="120"
+        width="150"
         align="center">
       </el-table-column>
       <el-table-column
         prop="phone"
         label="手机号"
-        width="140"
+        width="200"
         align="center">
       </el-table-column>
       <el-table-column
         prop="address"
         label="地址"
-        width="140"
+        width="230"
         align="center">
       </el-table-column>
       <el-table-column
