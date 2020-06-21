@@ -66,17 +66,15 @@
         </el-dropdown>
 
         <span class="header-btn">
-            <el-badge :value="3" class="badge">
-                    <i class="el-icon-bell"></i>
-            </el-badge>
+           签到
         </span>
         <el-dropdown>
           <span class="header-btn">
-              Admin<i class="el-icon-arrow-down el-icon--right"></i>
+              小黄<i class="el-icon-arrow-down el-icon--right"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item @click.native="$router.push('/personal')"><i style="padding-right: 8px" class="fa fa-cog"></i>个人中心</el-dropdown-item>
-            <el-dropdown-item @click.native="logout"><i style="padding-right: 8px" class="fa fa-key"></i>退出系统</el-dropdown-item>
+            <el-dropdown-item @click.native="$router.push('/editpassword')"><i style="padding-right: 8px" class="fa fa-cog"></i>修改密码</el-dropdown-item>
+            <el-dropdown-item @click.native="logout"><i style="padding-right: 8px" class="fa fa-key"></i>退出</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </div>
