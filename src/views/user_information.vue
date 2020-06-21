@@ -76,7 +76,7 @@ export default {
         }).then(() => {
           this.$message({
        
-            message: '修改成功'
+            message: '修改成功啦'
           });
         }).catch(() => {
           this.$message({
