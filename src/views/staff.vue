@@ -23,19 +23,9 @@
         <el-table-column prop="detailpost" label="职位"></el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
-            <el-button
-              type="primary"
-              icon="el-icon-edit"
-              circle
-              @click="handleEdit(scope.$index, scope.row)"
-            ></el-button>
-
-            <el-button
-              type="danger"
-              icon="el-icon-delete"
-              circle
-              @click="handleDelete(scope.$index, scope.row)"
-            ></el-button>
+           <a href="#"  @click="handleEdit(scope.$index, scope.row)" style="display:flex;float:left;width:30px; height:15px;padding-top:8px;padding-left:8px;height:30px;background-color: #FFB800;color:#ffffff"><i class="el-icon-edit"></i></a>
+            <a href="#" @click="handleDelete(scope.$index, scope.row)" style="display:flex;float:left;width:30px; height:15px;padding-top:8px;padding-left:8px;height:30px;background-color: red;color:#ffffff"><i class="el-icon-delete"></i></a>
+          
           </template>
         </el-table-column>
       </el-table>
