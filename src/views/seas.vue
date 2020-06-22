@@ -83,7 +83,7 @@ export default {
           age: '20',
           Telephone: '1503786976',
           weixin: 1503786976,
-           QQ:826959276,
+           QQ:826959266,
           time:'2016-08-08 20:14:24',
           people:'王二乎'
         }, ]
