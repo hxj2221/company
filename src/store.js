@@ -8,10 +8,10 @@ export default new Vuex.Store({
 uid:localStorage.getItem('uid')
   },
   mutations: {
-    increment(state,number)
+    increment(state,uid)
     {
-      state.uid=number
-      localStorage.setItem('uid',number)
+      state.uid=uid
+      localStorage.setItem('uid',uid)
   
     }
   },
