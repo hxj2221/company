@@ -2,7 +2,7 @@
 <div class="home">
     <!-- 欢迎 -->
     <div class="home_header">
-      <div class="home_name">欢迎员工：精英小分队！</div>
+      <div class="home_name">欢迎员工：{{this.$store.state.uid.g_name}}！</div>
     </div>
     <!-- 开发者 -->
     <div class="home_who">
