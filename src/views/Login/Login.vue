@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import {getLogin} from '../../network/Login/login.js'
   export default {
     data() {
       return {
@@ -49,17 +50,33 @@
       login() {
         let APP = this;
         APP.loginLoading = true;
-        setTimeout(() => {
-          sessionStorage.setItem(APP.$Config.tokenKey, '123456789');
-          APP.$notify({
-            title: '登录成功',
-            message: '很高兴你使用ElementUIAdmin！别忘了给个Star哦。',
-            type: 'success'
-          });
-          APP.loginLoading = false;
-          APP.$router.push({path: '/'});
-           this.$store.commit("increment",APP._uid)
-        }, 1000);
+
+        getLogin(APP.userNmae,APP.password).then(res=>{
+          console.log(res)
+              if(res.data.status==1){
+                APP.$message({
+                    message: res.data.info,
+                    type: 'success'
+                  });
+                setTimeout(() => {
+              sessionStorage.setItem(APP.$Config.tokenKey, '123456789');
+              APP.$notify({
+                title: '登录成功',
+                message: '很高兴你的使用！别忘了给个Star哦。',
+                type: 'success'
+              });
+              APP.loginLoading = false;
+              APP.$router.push({path: '/'});
+               this.$store.commit("increment",res.data.data)
+               console.log(this.$store.state.uid.uid)
+            }, 1000);
+          }else{
+            APP.$message.error(res.data.info);
+            setTimeout(() => {
+              APP.loginLoading = false;
+              }, 500);
+          }
+        })
       }
     }
   }

@@ -16,6 +16,8 @@
     <div class="leave_data">
       <el-table class="table"
     :data="tableData"
+    type="index"
+    @row-click="ccc"
     border
     style="width: 100%">
     <el-table-column
@@ -62,7 +64,7 @@
       label="操作"
       align="center">
       <el-button type="warning" icon="el-icon-edit" @click="dialogVisible = true" size="mini"></el-button>
-      <el-button type="danger" icon="el-icon-delete" size="mini"></el-button>
+      <el-button type="danger" icon="el-icon-delete" @click="del(index)" size="mini"></el-button>
     </el-table-column>
   </el-table>
     </div>
@@ -71,17 +73,17 @@
       :visible.sync="dialogVisible"
       width="30%"
       :before-close="handleClose">
-      <p class="dialog_start clearfix"><span>开始时间</span><span class="inp"><el-date-picker v-model="dstart" type="date" placeholder="选择日期"></el-date-picker></span></p>
-      <p class="dialog_start clearfix"><span>结束时间</span><span class="inp"><el-date-picker v-model="dend" type="date" placeholder="选择日期"></el-date-picker></span></p>
-      <p class="dialog_start clearfix"><span>天数</span><span class="inp"><el-input v-model="ddays" placeholder="请输入内容"></el-input></span></p>
+      <p class="dialog_start clearfix"><span>开始时间</span><span class="inp"><el-date-picker v-model="tablelist.start" type="date" placeholder="选择日期"></el-date-picker></span></p>
+      <p class="dialog_start clearfix"><span>结束时间</span><span class="inp"><el-date-picker v-model="tablelist.end" type="date" placeholder="选择日期"></el-date-picker></span></p>
+      <p class="dialog_start clearfix"><span>天数</span><span class="inp"><el-input v-model="tablelist.days" placeholder="请输入内容"></el-input></span></p>
       <p class="dialog_start clearfix">
         <span>类型</span>
         <span class="inp">
-        <el-radio v-model="radio" label="1">请假</el-radio>
-        <el-radio v-model="radio" label="2">外出</el-radio>
+        <el-radio v-model="tablelist.type" label="请假">请假</el-radio>
+        <el-radio v-model="tablelist.type" label="外出">外出</el-radio>
         </span>
       </p>
-      <p class="dialog_start clearfix"><span>原因</span><span class="inp"><el-input type="textarea" v-model="dreason"></el-input></span></p>
+      <p class="dialog_start clearfix"><span>原因</span><span class="inp"><el-input type="textarea" v-model="tablelist.reason"></el-input></span></p>
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisible = false">取 消</el-button>
         <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
@@ -98,9 +100,10 @@ export default {
     return {
       tableData:[
         {
+          rownum:1,
           Sponsor:'w',
-          start:'2020-06-18 00:00:00',
-          end:'2020-06-18 18:30:00',
+          start:'2020-06-20 00:00:00',
+          end:'2020-06-20 00:00:00',
           days:'1',
           reason:'111',
           type:'请假',
@@ -108,16 +111,18 @@ export default {
           operation:'',
         },
         {
+          rownum:2,
           Sponsor:'w',
-          start:'2020-06-18 00:00:00',
-          end:'2020-06-18 18:30:00',
-          days:'1',
+          start:'2020-06-20 00:00:00',
+          end:'2020-06-26 18:30:00',
+          days:'6',
           reason:'111',
-          type:'请假',
+          type:'外出',
           state:'',
           operation:'',
         },
         {
+          rownum:3,
           Sponsor:'w',
           start:'2020-06-18 00:00:00',
           end:'2020-06-18 18:30:00',
@@ -128,12 +133,8 @@ export default {
           operation:'',
         },
       ],
+      tablelist:[],
       dialogVisible: false,
-      dstart:'',
-      dend:'',
-      ddays:'',
-      dtype:'',
-      dreason:''
     }
   },
   methods: {
@@ -145,6 +146,16 @@ export default {
           })
           // eslint-disable-next-line no-unused-vars
           .catch(_ => {});
+      },
+      ccc(row,column,event){
+        console.log(column);
+        console.log(event)
+        this.tablelist=row;
+        console.log(this.tablelist.start)
+      },
+      del(index){
+        this.tableData.splice(index,1);
+        console.log(index)
       }
   },
 }

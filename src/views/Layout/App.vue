@@ -65,12 +65,12 @@
           </el-dropdown-menu>
         </el-dropdown>
 
-        <span class="header-btn">
+        <span class="header-btn" @click="sign">
            签到
         </span>
         <el-dropdown>
           <span class="header-btn">
-              小黄<i class="el-icon-arrow-down el-icon--right"></i>
+              {{this.$store.state.uid.g_name}}<i class="el-icon-arrow-down el-icon--right"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item @click.native="$router.push('/editpassword')"><i style="padding-right: 8px" class="fa fa-cog"></i>修改密码</el-dropdown-item>
@@ -129,6 +129,8 @@
 </template>
 
 <script>
+  import {getSign} from '../../network/sign/sign.js'
+
   import Screenfull from 'screenfull'
   import NavBar from './NavBar'
   import Menu from '../../menu/index';
@@ -144,6 +146,19 @@
       };
     },
     methods: {
+      sign(){
+      getSign(this.$store.state.uid.uid).then(res=>{
+        console.log(res)
+        if(res.data.status==1){
+          this.$message({
+                    message: res.data.info,
+                    type: 'success'
+                  });
+        }else{
+        this.$message.error(res.data.info);
+        }
+      })
+    },
       NavBarWidth(){
         let navBar = document.getElementById('nav-bar');
         if(!navBar)return;
