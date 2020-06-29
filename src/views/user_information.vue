@@ -69,7 +69,7 @@ export default {
       tableData: [
         {
           ID: "1",
-          name: "王小虎",
+          name: "王大虎",
           sex: "男",
           age: "20",
           Telephone: "1503786976",
