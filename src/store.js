@@ -5,14 +5,17 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-uid:localStorage.getItem('uid')
+    uid: sessionStorage.getItem('uid') || [],
+    name: sessionStorage.getItem('name') || [],
   },
   mutations: {
-    increment(state,uid)
-    {
-      state.uid=uid
-      localStorage.setItem('uid',uid)
-  
+    increment(state, uid) {
+      state.uid = uid
+      sessionStorage.setItem('uid', uid)
+    },
+    appname(state, name) {
+      state.name = name
+      sessionStorage.setItem('name', name)
     }
   },
   actions: {

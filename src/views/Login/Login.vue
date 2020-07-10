@@ -67,8 +67,9 @@ import {getLogin} from '../../network/Login/login.js'
               });
               APP.loginLoading = false;
               APP.$router.push({path: '/'});
-               this.$store.commit("increment",res.data.data)
-               console.log(this.$store.state.uid.uid)
+               this.$store.commit("increment",res.data.data.uid)
+               this.$store.commit("appname",res.data.data.g_name)
+               console.log(this.$store.state.uid)
             }, 1000);
           }else{
             APP.$message.error(res.data.info);

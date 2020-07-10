@@ -70,7 +70,7 @@
         </span>
         <el-dropdown>
           <span class="header-btn">
-              {{this.$store.state.uid.g_name}}<i class="el-icon-arrow-down el-icon--right"></i>
+              {{this.$store.state.name}}<i class="el-icon-arrow-down el-icon--right"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item @click.native="$router.push('/editpassword')"><i style="padding-right: 8px" class="fa fa-cog"></i>修改密码</el-dropdown-item>
@@ -147,7 +147,7 @@
     },
     methods: {
       sign(){
-      getSign(this.$store.state.uid.uid).then(res=>{
+      getSign(this.$store.state.uid).then(res=>{
         console.log(res)
         if(res.data.status==1){
           this.$message({
